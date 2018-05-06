@@ -53,9 +53,8 @@
 @include motion-ui-animations;
 
 // vendor styles
-@import "vendor/aos";
-@import "vendor/slick-carousel";
-@import "vendor/index-menu";
+@import "../../../node_modules/slick-carousel/slick/slick-theme.scss";
+@import "../../../node_modules/slick-carousel/slick/slick.scss";
 
 // mixins
 @import 'mixins/container-border';
@@ -64,6 +63,10 @@
 
 // custom components
 @import 'components/layout/app-dashboard';
+
+body {
+  padding-bottom: 100px;
+}
 
 %object-fit {
   width: 100%;
@@ -126,6 +129,7 @@ p.img {
 
 #inPageNav {
   position: fixed;
+  z-index: 10000;
   width: 10%;
   top: 50%;
   right:0;
@@ -138,6 +142,44 @@ p.img {
       left: 0;
       top: 50%;
       transform: translateY(-50%);
+    }
+  }
+  background: white;
+  &.hidden {
+    right: -10%;
+  }
+  .toggler {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -1em;
+    font-size: rem-calc(44);
+    transform: rotate(90deg);
+  }
+}
+
+.carousel-area {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  background: #eee;
+}
+
+.slick {
+  &-list {
+    overflow: visible;
+  }
+  &-center {
+    transform: scale(1.1);
+  }
+  &-slide {
+    div {
+      margin-left: 15px;
+      margin-right: 15px;
+      .carousel-item {
+        background: white;
+        padding-top: 15px;
+        padding-bottom: 15px;
+      }
     }
   }
 }

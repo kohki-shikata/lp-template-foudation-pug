@@ -7,14 +7,17 @@ block prepend global
 block header
 
 block main
-  nav#inPageNav.show-for-medium
+  nav#inPageNav.show-for-medium(data-toggler=".hidden")
+    p.toggler: a(data-toggle="inPageNav") ▼
     ul.menu.vertical(data-magellan)
       li.menu-item: a(href="#hero") page top
       li.menu-item: a(href="#t3cols") 3 columns
       li.menu-item: a(href="#t2colsfw") 2 columns full width
+      li.menu-item: a(href="#carousel") carousel
+      li.menu-item: a(href="#inlineVideo") inline video
   #hero.lptp-contentBlock(data-magellan-target="hero")
     h1.pageTitle
-      img.ofi(src="http://placehold.jp/1600x800.png" alt="pagetitle" data-interchange="[http://placehold.jp/1280x1280.png?text=smallHero, small],[http://placehold.jp/1600x800.png?text=mediumUpHero, medium]")
+      img(src="http://placehold.jp/1600x800.png" alt="pagetitle" data-interchange="[http://placehold.jp/1280x1280.png?text=smallHero, small],[http://placehold.jp/1600x800.png?text=mediumUpHero, medium]")
   .lptp-contentBlock
     h2.title.text-center#t3cols(data-magellan-target="t3cols") contents 3 blocks
     .grid-container
@@ -68,6 +71,29 @@ block main
           p description goes here... description goes here... description goes here... description goes here... 
           p description goes here... description goes here... description goes here... description goes here... 
           p description goes here... description goes here... description goes here... description goes here... 
+  h2.title.text-center(data-magellan-target="carousel")#carousel carousel
+  .lptp-contentBlock.carousel-area
+    .grid-padding-x.slick(data-equalizer)
+      - var i = 0;
+      while i < 12
+        .cell.carousel-item.small-3
+          .inner(data-equalizer-watch)
+            p.img
+              img(src="http://placehold.jp/480x200.png?text=image"+i alt="alt")
+            h3 carousel item title #{i}
+            .desc
+              p description goes here
+        - i++
+  h2.title.text-center#inlineVideo Inline Videos
+  .lptp-contentBlock
+    .grid-x
+      .cell.medium-6
+        .responsive-embed.
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/ctvlUvN6wSE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      .cell.medium-6
+        .responsive-embed.
+          <iframe src="https://player.vimeo.com/video/142548770" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          <p><a href="https://vimeo.com/142548770">Placeholder Video</a> from <a href="https://vimeo.com/treiber">Nik Treiber</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
     
 block footer
   footer#footer
