@@ -18,3 +18,5 @@ import libs from './lib/dependencies';
 window.libs = libs;
 
 // write down here codes for custom dependencies
+
+libs.objectFitImages('img.ofi');
