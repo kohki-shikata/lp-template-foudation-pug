@@ -2,44 +2,86 @@ extends _layout/_basic
 
 block prepend global
   -
-    var pagetitle = "toppage";
+    var pagetitle = "lp-template";
 
 block header
-  header#header
-    .row
-      .columns.medium-2
-        h1 sitelogo
-      .columns.medium-10
-        nav#g-nav
-          ul
-            - for (var i = 1; i <=5; i++)
-              li: a(href="#") dummy
+
 block main
-  #hero
-    style.
-      #hero {
-        min-height: 50vh;
-        background-color: #dedede;
-      }
-    h2.text-center concept message...
-  #features
-    .row.medium-up-3
-      .columns
-        h3 Functionability
+  nav#inPageNav.show-for-medium
+    ul.menu.vertical(data-magellan)
+      li.menu-item: a(href="#hero") page top
+      li.menu-item: a(href="#t3cols") 3 columns
+      li.menu-item: a(href="#t2colsfw") 2 columns full width
+  #hero.lptp-contentBlock(data-magellan-target="hero")
+    h1.pageTitle
+      img.ofi(src="http://placehold.jp/1600x800.png" alt="pagetitle" data-interchange="[http://placehold.jp/1280x1280.png?text=smallHero, small],[http://placehold.jp/1600x800.png?text=mediumUpHero, medium]")
+  .lptp-contentBlock
+    h2.title.text-center#t3cols(data-magellan-target="t3cols") contents 3 blocks
+    .grid-container
+      .grid-x
+        - 
+          var i = 0;
+        while i < 3
+          .cell.medium-4
+            h2.title
+              img.titleIcon(src="http://placehold.jp/480x480.png?text=icon")
+              br
+              |title text goes here
+            .desc
+              p description goes here... description goes here... description goes here... description goes here... 
+          - i++
+  h2.title.text-center(data-magellan-target="t2colsfw")#t2colsfw contents 2 cols with full width
+  .lptp-contentBlock.lptp-contentBlock-2colfull.mb0
+    .grid-x
+      .cell.large-6.img
+        p.img
+          img.ofi(src="http://placehold.jp/1280x640.png?text=")
+      .cell.large-6.text
+        h3.title
+          | title text goes here
         .desc
-          p
-            |Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      .columns
-        h3 Skills on Bleeding Edge
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+  .lptp-contentBlock.lptp-contentBlock-2colfull
+    .grid-x
+      .cell.large-6.img.small-order-2
+        p.img
+          img.ofi(src="http://placehold.jp/1280x640.png?text=")
+      .cell.large-6.text.small-order-1
+        h2.title
+          | title text goes here
         .desc
-          p
-            |Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      .columns
-        h3 Accuracy and Speed
-        .desc
-          p
-            |Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+          p description goes here... description goes here... description goes here... description goes here... 
+    
 block footer
   footer#footer
-    #copyright.text-center
-      p MIT License Kohki SHIKATA
+    #cta.grid-container
+      .grid-x
+        .cell.large-6
+          .grid-x
+            .cell.small-3
+              p.img
+                img(src="http://placehold.jp/200x65.png?text=logo")
+            .cell.small-9
+              p subtext here subtext here subtext here
+        .cell.large-6
+          .expanded.button-group
+            a.button(href="") Entry
+            a.button(href="") Contact
+            
